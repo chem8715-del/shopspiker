@@ -4,97 +4,94 @@
     <meta charset="UTF-8">
     <title>Shop Game Spyker</title>
     <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; text-align: center; background: #121212; color: white; padding: 20px; }
-        h1 { color: #00ff00; text-shadow: 2px 2px #000; }
+        body { font-family: sans-serif; text-align: center; background: #121212; color: white; padding: 20px; }
+        .navbar { margin-bottom: 30px; background: #222; padding: 10px; border-radius: 10px; position: sticky; top: 0; }
+        .navbar button { background: #444; color: white; border: none; padding: 10px 20px; margin: 5px; cursor: pointer; border-radius: 5px; font-weight: bold; }
+        .navbar button:hover, .navbar button.active { background: #00ff00; color: black; }
         
-        /* Menu chính */
-        .menu { margin-bottom: 30px; background: #222; padding: 15px; border-radius: 10px; position: sticky; top: 10px; z-index: 100; }
-        .menu button { background: #444; color: white; border: none; padding: 10px 20px; margin: 5px; cursor: pointer; border-radius: 5px; font-weight: bold; transition: 0.3s; }
-        .menu button:hover { background: #00ff00; color: black; }
-        .menu button.active { background: #00ff00; color: black; }
-
-        /* Khung sản phẩm */
         .container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
-        .item { border: 1px solid #333; padding: 15px; border-radius: 15px; background: #1e1e1e; width: 320px; transition: 0.3s; }
-        .item:hover { transform: translateY(-5px); border-color: #00ff00; }
+        .item { border: 1px solid #333; padding: 15px; border-radius: 15px; background: #1e1e1e; width: 300px; }
+        .item img { width: 100%; height: auto; border-radius: 10px; margin-bottom: 10px; }
         
-        .image-container img { width: 100%; height: auto; border-radius: 8px; margin-bottom: 10px; border: 1px solid #444; }
+        .tag { display: inline-block; padding: 3px 10px; border-radius: 5px; font-size: 12px; margin-bottom: 10px; font-weight: bold; }
+        .tag-vip { background: red; }
+        .tag-thuong { background: blue; }
+        .tag-clone { background: gray; }
         
         .price { font-size: 22px; color: #ffcc00; font-weight: bold; margin: 10px 0; }
-        .badge { display: inline-block; padding: 3px 10px; border-radius: 5px; font-size: 12px; margin-bottom: 10px; text-transform: uppercase; }
-        .vip { background: #ff0000; }
-        .clone { background: #555; }
-        .thuong { background: #007bff; }
-
-        button.buy-btn { background: #28a745; color: white; border: none; padding: 12px; cursor: pointer; border-radius: 5px; font-weight: bold; width: 100%; font-size: 16px; }
-        button.buy-btn:hover { background: #218838; }
+        button.buy-btn { background: #28a745; color: white; border: none; padding: 10px; cursor: pointer; border-radius: 5px; width: 100%; font-weight: bold; }
     </style>
 </head>
 <body>
 
     <h1>SHOP GAME SPYKER</h1>
 
-    <div class="menu">
-        <button class="active" onclick="filterAcc('all')">TẤT CẢ</button>
-        <button onclick="filterAcc('vip')">ACC VIP</button>
-        <button onclick="filterAcc('thuong')">ACC THƯỜNG</button>
-        <button onclick="filterAcc('clone')">ACC CLONE</button>
+    <div class="navbar" id="menu">
+        <button class="active" onclick="filter('all')">TẤT CẢ</button>
+        <button onclick="filter('vip')">ACC VIP</button>
+        <button onclick="filter('thuong')">ACC THƯỜNG</button>
+        <button onclick="filter('clone')">ACC CLONE</button>
     </div>
 
     <div class="container">
         <div class="item acc-vip">
-            <span class="badge vip">VIP</span>
-            <h3>Acc Siêu Cấp #01</h3>
-            <div class="image-container">
-                <img src="3608.jpg" alt="Ảnh 1">
-            </div>
-            <p class="price">500.000đ</p>
-            <button class="buy-btn" onclick="alert('Liên hệ Admin mua Acc VIP #01')">MUA NGAY</button>
+            <span class="tag tag-vip">VIP</span>
+            <h3>Acc VIP Siêu Cấp #3605</h3>
+            <img src="3605.jpg" alt="Acc VIP">
+            <img src="3605m1.jpg" alt="Acc VIP">
+            <img src="3605m2.jpg" alt="Acc VIP">
+            <img src="3605m5.jpg" alt="Acc VIP">
+            <p class="price">400.000đ</p>
+            <button class="buy-btn" onclick="alert('Liên hệ Admin mua Acc VIP 3605')">MUA NGAY</button>
         </div>
 
         <div class="item acc-thuong">
-            <span class="badge thuong">THƯỜNG</span>
-            <h3>Acc Ngon Giá Rẻ #02</h3>
-            <div class="image-container">
-                <img src="3607.jpg" alt="Ảnh 1">
-            </div>
+            <span class="tag tag-thuong">THƯỜNG</span>
+            <h3>Acc Thường #3606</h3>
+            <img src="3606.jpg" alt="Acc Thuong">
+            <img src="3606m1.jpg" alt="Acc Thuong">
+            <img src="3606m4.jpg" alt="Acc Thuong">
             <p class="price">250.000đ</p>
-            <button class="buy-btn" onclick="alert('Liên hệ Admin mua Acc Thường #02')">MUA NGAY</button>
+            <button class="buy-btn" onclick="alert('Liên hệ Admin mua Acc 3606')">MUA NGAY</button>
         </div>
 
-        <div class="item acc-clone">
-            <span class="badge clone">CLONE</span>
-            <h3>Acc Clone Trắng Thông Tin</h3>
-            <div class="image-container">
-                <img src="3507.jpg" alt="Ảnh 1">
-            </div>
-            <p class="price">20.000đ</p>
-            <button class="buy-btn" onclick="alert('Liên hệ Admin mua Acc Clone')">MUA NGAY</button>
+        <div class="item acc-thuong">
+            <span class="tag tag-thuong">THƯỜNG</span>
+            <h3>Acc Thường #3607</h3>
+            <img src="3607.jpg" alt="Acc Thuong">
+            <img src="3607m1.jpg" alt="Acc Thuong">
+            <img src="3607m2.jpg" alt="Acc Thuong">
+            <p class="price">250.000đ</p>
+            <button class="buy-btn" onclick="alert('Liên hệ Admin mua Acc 3607')">MUA NGAY</button>
+        </div>
+
+        <div class="item acc-thuong">
+            <span class="tag tag-thuong">THƯỜNG</span>
+            <h3>Acc Thường #3608</h3>
+            <img src="3608.jpg" alt="Acc Thuong">
+            <img src="3608m1.jpg" alt="Acc Thuong">
+            <p class="price">150.000đ</p>
+            <button class="buy-btn" onclick="alert('Liên hệ Admin mua Acc 3608')">MUA NGAY</button>
         </div>
     </div>
 
     <script>
-        function filterAcc(type) {
-            // Xử lý màu nút menu
-            const buttons = document.querySelectorAll('.menu button');
-            buttons.forEach(btn => btn.classList.remove('active'));
+        function filter(type) {
+            // Hiệu ứng nút menu
+            const btns = document.querySelectorAll('.navbar button');
+            btns.forEach(b => b.classList.remove('active'));
             event.target.classList.add('active');
 
-            // Xử lý ẩn hiện sản phẩm
+            // Lọc sản phẩm
             const items = document.querySelectorAll('.item');
             items.forEach(item => {
-                if (type === 'all') {
+                if (type === 'all' || item.classList.contains('acc-' + type)) {
                     item.style.display = 'block';
                 } else {
-                    if (item.classList.contains('acc-' + type)) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
+                    item.style.display = 'none';
                 }
             });
         }
     </script>
-
 </body>
 </html>
