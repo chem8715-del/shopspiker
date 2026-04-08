@@ -5,39 +5,126 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shop Game Spyker</title>
     <style>
-        /* Giao diện tổng thể */
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; background: #121212; color: white; padding: 20px; margin: 0; }
-        h1 { color: #00ff00; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 30px; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; text-align: center; background: #121212; color: white; padding: 20px; margin: 0; }
+        h1 { color: #00ff00; text-transform: uppercase; margin-bottom: 30px; }
 
-        /* Menu điều hướng */
-        .navbar { margin-bottom: 30px; background: #222; padding: 15px; border-radius: 12px; position: sticky; top: 10px; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
-        .navbar button { background: #333; color: white; border: 1px solid #444; padding: 10px 25px; margin: 5px; cursor: pointer; border-radius: 8px; font-weight: bold; transition: 0.3s; }
-        .navbar button:hover { background: #00ff00; color: black; border-color: #00ff00; }
+        /* Menu */
+        .navbar { margin-bottom: 30px; background: #222; padding: 10px; border-radius: 10px; position: sticky; top: 10px; z-index: 1000; }
+        .navbar button { background: #333; color: white; border: none; padding: 10px 20px; margin: 5px; cursor: pointer; border-radius: 5px; font-weight: bold; transition: 0.3s; }
+        .navbar button:hover { background: #00ff00; color: black; }
         .navbar button.active { background: #00ff00; color: black; }
 
         /* Khung hiển thị Acc */
-        .container { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; max-width: 1200px; margin: 0 auto; }
-        .item { border: 1px solid #333; padding: 20px; border-radius: 18px; background: #1e1e1e; width: 320px; transition: 0.4s; position: relative; overflow: hidden; }
-        .item:hover { transform: translateY(-10px); border-color: #00ff00; box-shadow: 0 10px 20px rgba(0,255,0,0.1); }
+        .container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 1200px; margin: 0 auto; }
+        .item { border: 1px solid #333; padding: 15px; border-radius: 15px; background: #1e1e1e; width: 320px; transition: 0.3s; position: relative; }
+        .item:hover { transform: translateY(-5px); border-color: #00ff00; }
         
-        /* Ảnh sản phẩm */
-        .image-container img { width: 100%; height: auto; border-radius: 12px; margin-bottom: 15px; border: 1px solid #444; display: block; }
+        /* Ảnh chính */
+        .main-img { width: 100%; height: auto; border-radius: 10px; margin-bottom: 10px; border: 1px solid #444; }
         
+        /* Khu vực ảnh chi tiết (Nằm dưới ảnh chính) */
+        .detail-images { display: flex; flex-wrap: wrap; justify-content: center; gap: 5px; margin-bottom: 15px; }
+        .detail-images img { width: 30%; height: auto; border-radius: 5px; border: 1px solid #555; transition: 0.3s; cursor: pointer; }
+        .detail-images img:hover { transform: scale(1.1); border-color: #00ff00; }
+
         /* Nhãn loại Acc */
-        .tag { position: absolute; top: 15px; right: 15px; padding: 5px 12px; border-radius: 6px; font-size: 12px; font-weight: bold; text-transform: uppercase; }
-        .tag-vip { background: #ff0000; color: white; box-shadow: 0 0 10px rgba(255,0,0,0.5); }
-        .tag-thuong { background: #007bff; color: white; }
-        .tag-clone { background: #6c757d; color: white; }
+        .tag { position: absolute; top: 10px; right: 10px; padding: 4px 10px; border-radius: 5px; font-size: 11px; font-weight: bold; text-transform: uppercase; }
+        .tag-vip { background: red; color: white; }
+        .tag-thuong { background: blue; color: white; }
+        .tag-clone { background: gray; color: white; }
 
         /* Giá và Nút mua */
-        .price { font-size: 24px; color: #ffcc00; font-weight: bold; margin: 15px 0; }
-        .buy-btn { background: #28a745; color: white; border: none; padding: 14px; cursor: pointer; border-radius: 8px; width: 100%; font-size: 16px; font-weight: bold; transition: 0.3s; }
-        .buy-btn:hover { background: #218838; filter: brightness(1.2); }
+        .price { font-size: 24px; color: #ffcc00; font-weight: bold; margin: 10px 0; }
+        .buy-btn { background: #28a745; color: white; border: none; padding: 12px; cursor: pointer; border-radius: 8px; width: 100%; font-size: 16px; font-weight: bold; }
+        .buy-btn:hover { background: #218838; }
     </style>
 </head>
 <body>
 
-    <h1>SHOP GAME SPIKER</h1>
+    <h1>SHOP GAME SPYKER</h1>
 
     <div class="navbar">
         <button class="active" onclick="filterAcc('all', this)">TẤT CẢ</button>
+        <button onclick="filterAcc('vip', this)">ACC VIP</button>
+        <button onclick="filterAcc('thuong', this)">ACC THƯỜNG</button>
+        <button onclick="filterAcc('clone', this)">ACC CLONE</button>
+    </div>
+
+    <div class="container">
+        <div class="item acc-vip">
+            <span class="tag tag-vip">VIP</span>
+            <h3>Acc VIP Siêu Cấp #3605</h3>
+            
+            <img src="3605.jpg" alt="Acc VIP 3605" class="main-img" id="main-3605">
+            
+            <div class="detail-images">
+                <img src="3605m1.jpg" alt="Ảnh 1" onclick="changeImage('3605', this.src)">
+                <img src="3605m2.jpg" alt="Ảnh 2" onclick="changeImage('3605', this.src)">
+                <img src="3605m5.jpg" alt="Ảnh 3" onclick="changeImage('3605', this.src)">
+                </div>
+
+            <p class="price">400.000đ</p>
+            <button class="buy-btn" onclick="alert('Liên hệ Admin mua Acc VIP 3605')">MUA NGAY</button>
+        </div>
+
+        <div class="item acc-thuong">
+            <span class="tag tag-thuong">THƯỜNG</span>
+            <h3>Acc Ngon Giá Rẻ #3606</h3>
+            <img src="3606.jpg" alt="Acc 3606" class="main-img" id="main-3606">
+            <div class="detail-images">
+                <img src="3606m1.jpg" alt="Ảnh 1" onclick="changeImage('3606', this.src)">
+                <img src="3606m4.jpg" alt="Ảnh 2" onclick="changeImage('3606', this.src)">
+            </div>
+            <p class="price">250.000đ</p>
+            <button class="buy-btn" onclick="alert('Liên hệ Admin mua Acc 3606')">MUA NGAY</button>
+        </div>
+
+        <div class="item acc-thuong">
+            <span class="tag tag-thuong">THƯỜNG</span>
+            <h3>Acc Ngon Giá Rẻ #3607</h3>
+            <img src="3607.jpg" alt="Acc 3607" class="main-img" id="main-3607">
+            <div class="detail-images">
+                <img src="3607m1.jpg" alt="Ảnh 1" onclick="changeImage('3607', this.src)">
+                <img src="3607m2.jpg" alt="Ảnh 2" onclick="changeImage('3607', this.src)">
+            </div>
+            <p class="price">250.000đ</p>
+            <button class="buy-btn" onclick="alert('Liên hệ Admin mua Acc 3607')">MUA NGAY</button>
+        </div>
+
+        <div class="item acc-thuong">
+            <span class="tag tag-thuong">THƯỜNG</span>
+            <h3>Acc Ngon Giá Rẻ #3608</h3>
+            <img src="3608.jpg" alt="Acc 3608" class="main-img" id="main-3608">
+            <div class="detail-images">
+                <img src="3608m1.jpg" alt="Ảnh 1" onclick="changeImage('3608', this.src)">
+            </div>
+            <p class="price">250.000đ</p>
+            <button class="buy-btn" onclick="alert('Liên hệ Admin mua Acc 3608')">MUA NGAY</button>
+        </div>
+    </div>
+
+    <script>
+        // Hàm lọc danh sách Acc
+        function filterAcc(type, btn) {
+            const buttons = document.querySelectorAll('.navbar button');
+            buttons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const items = document.querySelectorAll('.item');
+            items.forEach(item => {
+                if (type === 'all' || item.classList.contains('acc-' + type)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Hàm đổi ảnh chính khi nhấn vào ảnh nhỏ
+        function changeImage(accId, newSrc) {
+            document.getElementById('main-' + accId).src = newSrc;
+        }
+    </script>
+
+</body>
+</html>
