@@ -2,96 +2,42 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shop Game Spyker</title>
     <style>
-        body { font-family: sans-serif; text-align: center; background: #121212; color: white; padding: 20px; }
-        .navbar { margin-bottom: 30px; background: #222; padding: 10px; border-radius: 10px; position: sticky; top: 0; }
-        .navbar button { background: #444; color: white; border: none; padding: 10px 20px; margin: 5px; cursor: pointer; border-radius: 5px; font-weight: bold; }
-        .navbar button:hover, .navbar button.active { background: #00ff00; color: black; }
+        /* Giao diện tổng thể */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; background: #121212; color: white; padding: 20px; margin: 0; }
+        h1 { color: #00ff00; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 30px; }
+
+        /* Menu điều hướng */
+        .navbar { margin-bottom: 30px; background: #222; padding: 15px; border-radius: 12px; position: sticky; top: 10px; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+        .navbar button { background: #333; color: white; border: 1px solid #444; padding: 10px 25px; margin: 5px; cursor: pointer; border-radius: 8px; font-weight: bold; transition: 0.3s; }
+        .navbar button:hover { background: #00ff00; color: black; border-color: #00ff00; }
+        .navbar button.active { background: #00ff00; color: black; }
+
+        /* Khung hiển thị Acc */
+        .container { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; max-width: 1200px; margin: 0 auto; }
+        .item { border: 1px solid #333; padding: 20px; border-radius: 18px; background: #1e1e1e; width: 320px; transition: 0.4s; position: relative; overflow: hidden; }
+        .item:hover { transform: translateY(-10px); border-color: #00ff00; box-shadow: 0 10px 20px rgba(0,255,0,0.1); }
         
-        .container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
-        .item { border: 1px solid #333; padding: 15px; border-radius: 15px; background: #1e1e1e; width: 300px; }
-        .item img { width: 100%; height: auto; border-radius: 10px; margin-bottom: 10px; }
+        /* Ảnh sản phẩm */
+        .image-container img { width: 100%; height: auto; border-radius: 12px; margin-bottom: 15px; border: 1px solid #444; display: block; }
         
-        .tag { display: inline-block; padding: 3px 10px; border-radius: 5px; font-size: 12px; margin-bottom: 10px; font-weight: bold; }
-        .tag-vip { background: red; }
-        .tag-thuong { background: blue; }
-        .tag-clone { background: gray; }
-        
-        .price { font-size: 22px; color: #ffcc00; font-weight: bold; margin: 10px 0; }
-        button.buy-btn { background: #28a745; color: white; border: none; padding: 10px; cursor: pointer; border-radius: 5px; width: 100%; font-weight: bold; }
+        /* Nhãn loại Acc */
+        .tag { position: absolute; top: 15px; right: 15px; padding: 5px 12px; border-radius: 6px; font-size: 12px; font-weight: bold; text-transform: uppercase; }
+        .tag-vip { background: #ff0000; color: white; box-shadow: 0 0 10px rgba(255,0,0,0.5); }
+        .tag-thuong { background: #007bff; color: white; }
+        .tag-clone { background: #6c757d; color: white; }
+
+        /* Giá và Nút mua */
+        .price { font-size: 24px; color: #ffcc00; font-weight: bold; margin: 15px 0; }
+        .buy-btn { background: #28a745; color: white; border: none; padding: 14px; cursor: pointer; border-radius: 8px; width: 100%; font-size: 16px; font-weight: bold; transition: 0.3s; }
+        .buy-btn:hover { background: #218838; filter: brightness(1.2); }
     </style>
 </head>
 <body>
 
-    <h1>SHOP GAME SPYKER</h1>
+    <h1>SHOP GAME SPIKER</h1>
 
-    <div class="navbar" id="menu">
-        <button class="active" onclick="filter('all')">TẤT CẢ</button>
-        <button onclick="filter('vip')">ACC VIP</button>
-        <button onclick="filter('thuong')">ACC THƯỜNG</button>
-        <button onclick="filter('clone')">ACC CLONE</button>
-    </div>
-
-    <div class="container">
-        <div class="item acc-vip">
-            <span class="tag tag-vip">VIP</span>
-            <h3>Acc VIP Siêu Cấp #3605</h3>
-            <img src="3605.jpg" alt="Acc VIP">
-            <img src="3605m1.jpg" alt="Acc VIP">
-            <img src="3605m2.jpg" alt="Acc VIP">
-            <img src="3605m5.jpg" alt="Acc VIP">
-            <p class="price">400.000đ</p>
-            <button class="buy-btn" onclick="alert('Liên hệ Admin mua Acc VIP 3605')">MUA NGAY</button>
-        </div>
-
-        <div class="item acc-thuong">
-            <span class="tag tag-thuong">THƯỜNG</span>
-            <h3>Acc Thường #3606</h3>
-            <img src="3606.jpg" alt="Acc Thuong">
-            <img src="3606m1.jpg" alt="Acc Thuong">
-            <img src="3606m4.jpg" alt="Acc Thuong">
-            <p class="price">250.000đ</p>
-            <button class="buy-btn" onclick="alert('Liên hệ Admin mua Acc 3606')">MUA NGAY</button>
-        </div>
-
-        <div class="item acc-thuong">
-            <span class="tag tag-thuong">THƯỜNG</span>
-            <h3>Acc Thường #3607</h3>
-            <img src="3607.jpg" alt="Acc Thuong">
-            <img src="3607m1.jpg" alt="Acc Thuong">
-            <img src="3607m2.jpg" alt="Acc Thuong">
-            <p class="price">250.000đ</p>
-            <button class="buy-btn" onclick="alert('Liên hệ Admin mua Acc 3607')">MUA NGAY</button>
-        </div>
-
-        <div class="item acc-thuong">
-            <span class="tag tag-thuong">THƯỜNG</span>
-            <h3>Acc Thường #3608</h3>
-            <img src="3608.jpg" alt="Acc Thuong">
-            <img src="3608m1.jpg" alt="Acc Thuong">
-            <p class="price">150.000đ</p>
-            <button class="buy-btn" onclick="alert('Liên hệ Admin mua Acc 3608')">MUA NGAY</button>
-        </div>
-    </div>
-
-    <script>
-        function filter(type) {
-            // Hiệu ứng nút menu
-            const btns = document.querySelectorAll('.navbar button');
-            btns.forEach(b => b.classList.remove('active'));
-            event.target.classList.add('active');
-
-            // Lọc sản phẩm
-            const items = document.querySelectorAll('.item');
-            items.forEach(item => {
-                if (type === 'all' || item.classList.contains('acc-' + type)) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        }
-    </script>
-</body>
-</html>
+    <div class="navbar">
+        <button class="active" onclick="filterAcc('all', this)">TẤT CẢ</button>
