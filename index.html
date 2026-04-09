@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop Game Spiker - Uy Tín Số 1</title>
+    <title>Shop Game Spyker - Uy Tín Số 1</title>
     <style>
         /* GIAO DIỆN TỔNG THỂ */
         body { font-family: 'Segoe UI', Arial, sans-serif; text-align: center; background: #0f0f0f; color: white; padding: 0; margin: 0; padding-bottom: 50px; }
@@ -12,7 +12,7 @@
         header { padding: 30px 0 10px 0; }
         h1 { color: #00ff00; text-transform: uppercase; margin: 0; letter-spacing: 3px; font-size: 35px; text-shadow: 0 0 10px rgba(0,255,0,0.5); }
 
-        /* MARQUEE - THÔNG BÁO CHẠY CHỮ */
+        /* MARQUEE - THÔNG BÁO CHẠY CHỮ DƯỚI TIÊU ĐỀ */
         .marquee-container { background: #1a1a1a; color: #00ff00; padding: 8px 0; border-top: 1px solid #333; border-bottom: 1px solid #333; margin-top: 15px; font-weight: bold; }
 
         /* MENU ĐIỀU HƯỚNG */
@@ -38,7 +38,7 @@
         .tag { position: absolute; top: 10px; right: 10px; padding: 4px 10px; border-radius: 5px; font-size: 11px; font-weight: bold; text-transform: uppercase; z-index: 10; }
         .tag-vip { background: #ff0000; color: white; }
         .tag-thuong { background: #007bff; color: white; }
-        .tag-clone { background: #a333ff; color: white; } /* Màu tím cho Clone Sara */
+        .tag-clone { background: #a333ff; color: white; }
 
         .price { font-size: 26px; color: #ffcc00; font-weight: bold; margin: 10px 0; text-shadow: 1px 1px #000; }
         .buy-btn { background: #28a745; color: white; border: none; padding: 15px; cursor: pointer; border-radius: 8px; width: 100%; font-weight: bold; font-size: 16px; transition: 0.3s; }
@@ -53,7 +53,6 @@
         .fb-btn { background: #1877f2; color: white; border: none; padding: 15px 25px; border-radius: 10px; font-weight: bold; text-decoration: none; display: block; margin: 20px auto 0 auto; font-size: 18px; transition: 0.3s; width: 80%; }
         .fb-btn:hover { background: #166fe5; transform: translateY(-3px); }
 
-        /* FOOTER */
         footer { background: #111; padding: 30px 20px; border-top: 1px solid #333; margin-top: 50px; color: #666; font-size: 13px; }
         footer b { color: #00ff00; }
     </style>
@@ -61,7 +60,7 @@
 <body>
 
     <header>
-        <h1>SHOP GAME SPIKER</h1>
+        <h1>SHOP GAME SPYKER</h1>
     </header>
 
     <div class="marquee-container">
@@ -78,7 +77,7 @@
     <div class="container">
         <div class="item acc-vip" id="acc-3605">
             <span class="tag tag-vip">VIP</span>
-            <h3>Acc VIP #3605</h3>
+            <h3>Acc VIP Siêu Cấp #3605</h3>
             <div class="main-img-container">
                 <button class="reset-img-btn" onclick="resetImage('3605')">Quay lại ảnh đầu</button>
                 <img src="3605.jpg" data-default-src="3605.jpg" class="main-img" id="img-3605">
@@ -103,11 +102,26 @@
                 <img src="3606m1.jpg" onclick="changeImage('3606', this.src)">
                 <img src="3606m4.jpg" onclick="changeImage('3606', this.src)">
             </div>
-            <p class="price">250.000đ</p>
+            <p class="price">150.000đ</p>
             <button class="buy-btn" onclick="openPopup('Acc Thường #3606')">MUA NGAY</button>
         </div>
 
-         <div class="item acc-thuong" id="acc-3608">
+        <div class="item acc-thuong" id="acc-3607">
+            <span class="tag tag-thuong">THƯỜNG</span>
+            <h3>Acc Ngon Giá Rẻ #3607</h3>
+            <div class="main-img-container">
+                <button class="reset-img-btn" onclick="resetImage('3607')">Quay lại ảnh đầu</button>
+                <img src="3607.jpg" data-default-src="3607.jpg" class="main-img" id="img-3607">
+            </div>
+            <div class="detail-images">
+                <img src="3607m1.jpg" onclick="changeImage('3607', this.src)">
+                <img src="3607m2.jpg" onclick="changeImage('3607', this.src)">
+            </div>
+            <p class="price">250.000đ</p>
+            <button class="buy-btn" onclick="openPopup('Acc Thường #3607')">MUA NGAY</button>
+        </div>
+
+        <div class="item acc-thuong" id="acc-3608">
             <span class="tag tag-thuong">THƯỜNG</span>
             <h3>Acc Ngon Giá Rẻ #3608</h3>
             <div class="main-img-container">
@@ -121,20 +135,19 @@
             <button class="buy-btn" onclick="openPopup('Acc Thường #3608')">MUA NGAY</button>
         </div>
 
-        <div class="item acc-clone" id="acc-sara1">
+        <div class="item acc-clone" id="acc-3609">
             <span class="tag tag-clone">SARA CLONE</span>
-            <h3>Acc Clone Sara #01</h3>
+            <h3>Acc Clone Sara #3609</h3>
             <div class="main-img-container">
-                <button class="reset-img-btn" onclick="resetImage('sara1')">Quay lại ảnh đầu</button>
-                <img src="3507.jpg" data-default-src="3507.jpg" class="main-img" id="img-sara1">
+                <button class="reset-img-btn" onclick="resetImage('3609')">Quay lại ảnh đầu</button>
+                <img src="3609.jpg" data-default-src="3609.jpg" class="main-img" id="img-3609">
             </div>
             <div class="detail-images">
-                <img src="3509.jpg" onclick="changeImage('sara1', this.src)">
-                <img src="3509m1.jpg" onclick="changeImage('sara1', this.src)">
-                <img src="3509m2.jpg" onclick="changeImage('sara1', this.src)">
+                <img src="3609m1.jpg" onclick="changeImage('3609', this.src)">
+                <img src="3609m2.jpg" onclick="changeImage('3609', this.src)">
             </div>
             <p class="price">110.000đ</p>
-            <button class="buy-btn" onclick="openPopup('Acc Clone Sara #01')">MUA NGAY</button>
+            <button class="buy-btn" onclick="openPopup('Acc Clone Sara #3609')">MUA NGAY</button>
         </div>
     </div>
 
@@ -142,14 +155,13 @@
         <div class="modal-content">
             <span class="close-btn" onclick="closePopup()">&times;</span>
             <h2 id="popupTitle">MUA TÀI KHOẢN</h2>
-            <p>Để hoàn tất giao dịch, bạn vui lòng nhắn tin trực tiếp cho chủ shop qua Facebook bên dưới.</p>
-            <a href="https://www.facebook.com/quang.xuan.81544?locale=vi_VN" target="_blank" class="fb-btn">NHẮN TIN CHO CHỦ SHOP</a>
+            <p>Vui lòng liên hệ Admin qua Facebook để hoàn tất chốt đơn!</p>
+            <a href="https://www.facebook.com/quang.xuan.81544?locale=vi_VN" target="_blank" class="fb-btn">LIÊN HỆ FACEBOOK</a>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 <b>Shop Spyker</b>. Designed by Spyker Team.</p>
-        <p>Giao dịch uy tín - Tận tâm với khách hàng - Hỗ trợ bảo hành 7 days.</p>
+        <p>&copy; 2026 <b>Shop Spyker</b>. Giao dịch uy tín - Bảo hành trọn đời.</p>
     </footer>
 
     <script>
@@ -161,7 +173,7 @@
             const items = document.querySelectorAll('.item');
             items.forEach(item => {
                 if (type === 'all' || item.classList.contains('acc-' + type)) {
-                    item.style.display = 'block';
+                    item.style.display = 'inline-block';
                 } else {
                     item.style.display = 'none';
                 }
