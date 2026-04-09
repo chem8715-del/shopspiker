@@ -8,11 +8,10 @@
         /* GIAO DIỆN TỔNG THỂ */
         body { font-family: 'Segoe UI', Arial, sans-serif; text-align: center; background: #0f0f0f; color: white; padding: 0; margin: 0; padding-bottom: 50px; }
         
-        /* HEADER */
         header { padding: 30px 0 10px 0; }
         h1 { color: #00ff00; text-transform: uppercase; margin: 0; letter-spacing: 3px; font-size: 35px; text-shadow: 0 0 10px rgba(0,255,0,0.5); }
 
-        /* MARQUEE - THÔNG BÁO CHẠY CHỮ DƯỚI TIÊU ĐỀ */
+        /* MARQUEE - THÔNG BÁO CHẠY CHỮ */
         .marquee-container { background: #1a1a1a; color: #00ff00; padding: 8px 0; border-top: 1px solid #333; border-bottom: 1px solid #333; margin-top: 15px; font-weight: bold; }
 
         /* MENU ĐIỀU HƯỚNG */
@@ -21,14 +20,14 @@
         .navbar button:hover, .navbar button.active { background: #00ff00; color: black; box-shadow: 0 0 10px #00ff00; }
 
         /* CONTAINER SẢN PHẨM */
-        .container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 20px; }
-        .item { border: 1px solid #333; padding: 15px; border-radius: 15px; background: #1e1e1e; width: 320px; position: relative; transition: 0.3s; }
+        .container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 20px; min-height: 400px; }
+        .item { border: 1px solid #333; padding: 15px; border-radius: 15px; background: #1e1e1e; width: 320px; position: relative; transition: 0.3s; display: block; }
         .item:hover { transform: translateY(-5px); border-color: #00ff00; box-shadow: 0 5px 15px rgba(0,255,0,0.2); }
         
         .main-img-container { position: relative; margin-bottom: 10px; }
-        .main-img { width: 100%; height: auto; border-radius: 10px; border: 1px solid #444; min-height: 180px; background: #111; }
+        .main-img { width: 100%; height: auto; border-radius: 10px; border: 1px solid #444; min-height: 180px; background: #111; object-fit: cover; }
         
-        .reset-img-btn { position: absolute; top: 10px; left: 10px; background: rgba(255,0,0,0.8); color: white; border: none; padding: 5px 10px; border-radius: 5px; font-size: 11px; cursor: pointer; display: none; z-index: 5; font-weight: bold; }
+        .reset-img-btn { position: absolute; top: 10px; left: 10px; background: rgba(255,0,0,0.9); color: white; border: none; padding: 5px 10px; border-radius: 5px; font-size: 11px; cursor: pointer; display: none; z-index: 5; font-weight: bold; }
 
         .detail-images { display: flex; flex-wrap: wrap; justify-content: center; gap: 5px; margin-bottom: 15px; }
         .detail-images img { width: 30%; height: auto; border-radius: 5px; border: 1px solid #555; cursor: pointer; transition: 0.2s; }
@@ -44,15 +43,18 @@
         .buy-btn { background: #28a745; color: white; border: none; padding: 15px; cursor: pointer; border-radius: 8px; width: 100%; font-weight: bold; font-size: 16px; transition: 0.3s; }
         .buy-btn:hover { background: #218838; transform: scale(1.02); }
 
-        /* POPUP */
+        /* POPUP LIÊN HỆ */
         .modal { display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); }
         .modal-content { background: #1a1a1a; margin: 15% auto; padding: 30px; border-radius: 20px; width: 85%; max-width: 450px; border: 2px solid #00ff00; position: relative; box-shadow: 0 0 30px rgba(0,255,0,0.3); }
         .modal-content h2 { color: #00ff00; margin-top: 0; }
+        .modal-content p { color: #ddd; line-height: 1.6; }
         .close-btn { position: absolute; top: 10px; right: 20px; font-size: 30px; cursor: pointer; color: #888; }
+        .close-btn:hover { color: #fff; }
         
         .fb-btn { background: #1877f2; color: white; border: none; padding: 15px 25px; border-radius: 10px; font-weight: bold; text-decoration: none; display: block; margin: 20px auto 0 auto; font-size: 18px; transition: 0.3s; width: 80%; }
-        .fb-btn:hover { background: #166fe5; transform: translateY(-3px); }
+        .fb-btn:hover { background: #166fe5; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(24,119,242,0.4); }
 
+        /* FOOTER */
         footer { background: #111; padding: 30px 20px; border-top: 1px solid #333; margin-top: 50px; color: #666; font-size: 13px; }
         footer b { color: #00ff00; }
     </style>
@@ -102,7 +104,7 @@
                 <img src="3606m1.jpg" onclick="changeImage('3606', this.src)">
                 <img src="3606m4.jpg" onclick="changeImage('3606', this.src)">
             </div>
-            <p class="price">150.000đ</p>
+            <p class="price">250.000đ</p>
             <button class="buy-btn" onclick="openPopup('Acc Thường #3606')">MUA NGAY</button>
         </div>
 
@@ -121,7 +123,6 @@
             <button class="buy-btn" onclick="openPopup('Acc Thường #3607')">MUA NGAY</button>
         </div>
 
-        
         <div class="item acc-thuong" id="acc-3608">
             <span class="tag tag-thuong">THƯỜNG</span>
             <h3>Acc Ngon Giá Rẻ #3608</h3>
@@ -132,13 +133,13 @@
             <div class="detail-images">
                 <img src="3608m1.jpg" onclick="changeImage('3608', this.src)">
             </div>
-            <p class="price">270.000đ</p>
+            <p class="price">250.000đ</p>
             <button class="buy-btn" onclick="openPopup('Acc Thường #3608')">MUA NGAY</button>
         </div>
 
-        <div class="item acc-thuong" id="acc-3609">
-            <span class="tag tag-thuong">THƯỜNG</span>
-            <h3>Acc Ngon Giá Rẻ #3609</h3>
+        <div class="item acc-clone" id="acc-3609">
+            <span class="tag tag-clone">SARA CLONE</span>
+            <h3>Acc Clone Sara #3609</h3>
             <div class="main-img-container">
                 <button class="reset-img-btn" onclick="resetImage('3609')">Quay lại ảnh đầu</button>
                 <img src="3609.jpg" data-default-src="3609.jpg" class="main-img" id="img-3609">
@@ -147,21 +148,23 @@
                 <img src="3609m1.jpg" onclick="changeImage('3609', this.src)">
                 <img src="3609m2.jpg" onclick="changeImage('3609', this.src)">
             </div>
-            <p class="price">250.000đ</p>
-            <button class="buy-btn" onclick="openPopup('Acc Thường #3609')">MUA NGAY</button>
+            <p class="price">50.000đ</p>
+            <button class="buy-btn" onclick="openPopup('Acc Clone Sara #3609')">MUA NGAY</button>
         </div>
+    </div>
 
     <div id="contactPopup" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closePopup()">&times;</span>
             <h2 id="popupTitle">MUA TÀI KHOẢN</h2>
-            <p>Vui lòng liên hệ Admin qua Facebook để hoàn tất chốt đơn!</p>
-            <a href="https://www.facebook.com/quang.xuan.81544?locale=vi_VN" target="_blank" class="fb-btn">LIÊN HỆ FACEBOOK</a>
+            <p>Để hoàn tất thanh toán và nhận thông tin tài khoản, bạn vui lòng nhắn tin trực tiếp cho chủ shop qua Facebook bên dưới.</p>
+            <a href="https://www.facebook.com/quang.xuan.81544?locale=vi_VN" target="_blank" class="fb-btn">NHẮN TIN CHO CHỦ SHOP</a>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 <b>Shop Spyker</b>. Giao dịch uy tín - Bảo hành trọn đời.</p>
+        <p>&copy; 2026 <b>Shop Spiker</b>. Designed by Spyker Team.</p>
+        <p>Giao dịch uy tín - Tài khoản sạch 100% - Hỗ trợ bảo hành trọn đời.</p>
     </footer>
 
     <script>
@@ -173,7 +176,7 @@
             const items = document.querySelectorAll('.item');
             items.forEach(item => {
                 if (type === 'all' || item.classList.contains('acc-' + type)) {
-                    item.style.display = 'inline-block';
+                    item.style.display = 'block';
                 } else {
                     item.style.display = 'none';
                 }
