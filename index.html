@@ -26,7 +26,7 @@
     padding: 15px; 
     border-radius: 15px; 
     border: 1px solid #333;
-    width: 90%;            /* Chiếm 90% chiều rộng màn hình nếu màn hình nhỏ */
+    width: 100%;           
     max-width: 450px;      /* Nhưng không bao giờ vượt quá 450px */
     
     margin: 10px auto;     /* Căn giữa và tạo khoảng cách trên dưới */
@@ -275,71 +275,5 @@
             if (event.target == modal) { modal.style.display = 'none'; }
         }
     </script>
-        <footer class="footer-contact">
-    <h3>LIÊN HỆ VỚI CHỦ SHOP</h3>
-    <div class="contact-buttons">
-        <a href="https://zalo.me/0987748724" target="_blank" class="contact-item zalo">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Icon_of_Zalo.svg/1200px-Icon_of_Zalo.svg.png" alt="Zalo">
-            <span>Zalo</span>
-        </a>
-
-        <a href="https://www.facebook.com/quang.xuan.81544?locale=vi_VN" class="contact-item messenger">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Facebook_Messenger_logo_2020.svg/2048px-Facebook_Messenger_logo_2020.svg.png" alt="Messenger">
-            <span>Messenger</span>
-        </a>
-
-        <a href="https://www.facebook.com/groups/2396897754096365?locale=vi_VN" target="_blank" class="contact-item facebook">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_2023.png/600px-Facebook_Logo_2023.png" alt="Facebook">
-            <span>Fanpage</span>
-        </a>
-    </div>
-    <p>© 2026 Shop Spiker - Uy Tín Tạo Nên Thương Hiệu</p>
-</footer>
-
-        .footer-contact {
-    background: #111;
-    padding: 3px 1px;
-    margin-top: 5px;
-    border-top: 1px solid #333;
-    text-align: center;
-}
-
-.footer-contact h3 {
-    color: #00ff00; /* Màu xanh lá cho hợp với tông shop Spiker của bạn */
-    font-size: 5px;
-    margin-bottom: 5px;
-}
-
-.contact-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 5px;
-    flex-wrap: wrap;
-}
-
-.contact-item {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    background: #222;
-    padding: 8px 15px;
-    border-radius: 8px;
-    text-decoration: none;
-    color: white;
-    font-size: 5px;
-    border: 1px solid #444;
-    transition: 0.3s;
-}
-
-.contact-item img {
-    width: 5px;
-    height: 5px;
-}
-
-.contact-item:hover {
-    background: #333;
-    transform: translateY(-3px);
-    border-color: #00ff00;
-}
 </body>
 </html>
